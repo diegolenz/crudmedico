@@ -150,17 +150,6 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Reactive Programming -->
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-core</artifactId>
-		</dependency>
-
-		<!-- Thymeleaf -->
-		<dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-        </dependency>
 
 		<!-- Hibernate -->
 		<dependency>
@@ -172,55 +161,11 @@
 			<artifactId>hibernate-java8</artifactId>
 		</dependency>
 
-		<!-- jaxb -->
-
-		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>${javax-jaxb.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-core</artifactId>
-			<version>${javax-jaxb.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>${javax-jaxb.version}</version>
-		</dependency>
-
 		<!-- DataSource -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
   			<artifactId>postgresql</artifactId>
   		</dependency>
-
-		<!-- Apache Commons -->
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${apache.common.io.version}</version>
-		</dependency>
-
-
-  		<!-- Lombok -->
-		<dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-		<!-- login -->
-
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator</artifactId>
-			<version>0.34</version>
-		</dependency>
-
 
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-exec -->
 		<dependency>

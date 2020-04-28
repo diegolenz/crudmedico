@@ -18,7 +18,7 @@ import {
 import { MedicoFormComponent } from "./medico-form/medico-form.component";
 import { MedicoListComponent } from "./medico-list/medico-list.component";
 import { MedicoRouting } from "./medico.routing";
-import { MedicoApiService } from "./store/medicoApiService";
+import { MedicoApiService } from "./service/medicoApiService";
 
 @NgModule({
   declarations: [MedicoFormComponent, MedicoListComponent],

@@ -5,8 +5,8 @@ import {
 } from "src/app/layout/notification/confirm/confirmation-dialog.component";
 
 import { MedicoFormComponent } from "../medico-form/medico-form.component";
-import { MedicoApiService } from "../store/medicoApiService";
-import { Medico } from "../store/model/model";
+import { MedicoApiService } from "../service/medicoApiService";
+import { Medico } from "../model/model";
 
 @Component({
   selector: "app-heroes-list",

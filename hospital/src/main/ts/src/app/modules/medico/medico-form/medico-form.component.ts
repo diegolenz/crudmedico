@@ -3,8 +3,8 @@ import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material";
 import { MAT_DIALOG_DATA, MatDialog } from "@angular/material/dialog";
 
-import { Medico } from "../store/model/model";
-import { MedicoApiService } from "./../store/medicoApiService";
+import { Medico } from "../model/model";
+import { MedicoApiService } from "../service/medicoApiService";
 
 @Component({
   selector: "app-medico-form",

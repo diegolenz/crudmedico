@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author rodrigo@eits.com.br
+ *
  */
 @Service
 public class MedicoService {
@@ -102,7 +102,7 @@ public class MedicoService {
      *
      */
     @Transactional(readOnly = true)
-    public List<Medico> getAll(/*PageRequest pageable*/) {
+    public List<Medico> getAll() {
         List<Medico> medicos = this.medicoRepository.findAll();
 
         return medicos;

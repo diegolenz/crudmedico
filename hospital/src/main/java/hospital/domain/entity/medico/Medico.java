@@ -2,7 +2,6 @@ package hospital.domain.entity.medico;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hospital.domain.entity.endereco.Endereco;
-import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
