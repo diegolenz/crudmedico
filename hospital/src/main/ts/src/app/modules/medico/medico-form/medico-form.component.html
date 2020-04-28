@@ -55,6 +55,7 @@
               pattern=".+@.+\..+"
               placeholder="Pais"
               autofocus
+              required
             />
           </mat-form-field>
           <mat-form-field fxFlex>
@@ -65,6 +66,7 @@
               pattern=".+@.+\..+"
               placeholder="Estado"
               autofocus
+              required
             />
           </mat-form-field>
         </div>
@@ -77,6 +79,7 @@
               pattern=".+@.+\..+"
               placeholder="Cidade"
               autofocus
+              required
             />
           </mat-form-field>
           <mat-form-field fxFlex>
@@ -87,6 +90,7 @@
               pattern=".+@.+\..+"
               placeholder="Bairro"
               autofocus
+              required
             />
           </mat-form-field>
         </div>
@@ -98,7 +102,6 @@
               name="logradouro"
               pattern=".+@.+\..+"
               placeholder="logradouro"
-              autofocus
             />
           </mat-form-field>
         </div>
@@ -110,7 +113,6 @@
               name="cep"
               pattern=".+@.+\..+"
               placeholder="Cep"
-              autofocus
             />
           </mat-form-field>
 
@@ -118,10 +120,9 @@
             <input
               formControlName="numero"
               matInput
+              type="number"
               name="numero"
-              pattern=".+@.+\..+"
               placeholder="Numero"
-              autofocus
             />
           </mat-form-field>
         </div>

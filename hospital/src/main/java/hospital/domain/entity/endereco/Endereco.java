@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -19,18 +21,6 @@ public class Endereco {
     private Long id;
 
     /**
-     * Bairro
-     */
-    @Column(length = 144)
-    private String bairro;
-
-    /**
-     * Cep
-     */
-    @Column(length = 10)
-    private String cep;
-
-    /**
      * Cidade
      */
     @Column(length = 144)
@@ -40,6 +30,8 @@ public class Endereco {
      * Estado
      */
     @Column(length = 144)
+    @NotNull
+    @NotEmpty
     private String estado;
 
     /**
@@ -47,6 +39,21 @@ public class Endereco {
      */
     @Column(length = 144)
     public String pais;
+
+
+    /**
+     * Bairro
+     */
+    @Column(length = 144)
+    @NotNull
+    @NotEmpty
+    private String bairro;
+
+    /**
+     * Cep
+     */
+    @Column(length = 10)
+    private String cep;
 
     /**
      * Logradouro
@@ -70,17 +77,6 @@ public class Endereco {
 
     }
 
-    /*-------------------------------------------------------------------
-     *				 		     BEHAVIORS
-     *-------------------------------------------------------------------*/
-    public void validateEndereco() {
-        Assert.hasText(this.bairro, "O campo 'Bairro' deve ser preenchido");
-        Assert.isTrue(this.pais != null || this.pais.isEmpty(), "O campo 'País' deve ser preenchido");
-        Assert.hasText(this.estado, "O campo 'Estado' deve ser preenchido");
-        Assert.hasText(this.cidade, "O campo 'Cidade' deve ser preenchido");
-        Assert.hasText(this.logradouro, "O campo 'Logradouro' deve ser preenchido");
-        Assert.hasText(this.numero, "O campo 'Número' deve ser preenchido");
-    }
     /*-------------------------------------------------------------------
      *				 		     GETTERS AND SETTERS
      *-------------------------------------------------------------------*/

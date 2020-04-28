@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, Optional } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material";
 import { MAT_DIALOG_DATA, MatDialog } from "@angular/material/dialog";
 
@@ -16,23 +16,22 @@ export class MedicoFormComponent implements OnInit {
    *                           ATTRIBUTES
    *-------------------------------------------------------------------*/
 
-  form = new FormGroup({
-    id: new FormControl("", [Validators.required]),
+  form = this.fb.group({
+    id: new FormControl(""),
     nome: new FormControl("", [Validators.required]),
     crm: new FormControl("", [Validators.required]),
-    endereco: new FormGroup({
-      id: new FormControl("", [Validators.required]),
-      pais: new FormControl(""),
-      cidade: new FormControl(""),
-      estado: new FormControl(""),
+    endereco: this.fb.group({
+      id: new FormControl(""),
+      pais: new FormControl("", [Validators.required]),
+      cidade: new FormControl("", [Validators.required]),
+      estado: new FormControl("", [Validators.required]),
       logradouro: new FormControl(""),
-      bairro: new FormControl(""),
+      bairro: new FormControl("", [Validators.required]),
       cep: new FormControl(""),
       numero: new FormControl(""),
     }),
   });
 
-  private adicao: boolean;
   /*-------------------------------------------------------------------
    *                           CONSTRUCTORS
    *-------------------------------------------------------------------*/
@@ -40,7 +39,8 @@ export class MedicoFormComponent implements OnInit {
     @Optional() @Inject(MAT_DIALOG_DATA) public medico: Medico,
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private api: MedicoApiService
+    private api: MedicoApiService,
+    private fb: FormBuilder
   ) {}
   /*-------------------------------------------------------------------
    *                           BEHAVIORS
@@ -51,10 +51,7 @@ export class MedicoFormComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.medico);
     if (this.medico != null || this.medico != undefined) {
-      this.adicao = false;
       this.form.patchValue(this.medico);
-    } else {
-      this.adicao = true;
     }
   }
   /**
@@ -68,11 +65,7 @@ export class MedicoFormComponent implements OnInit {
    *
    */
   public save() {
-    if (!this.form.invalid) return;
-    console.log(this.form.value);
-
     this.medico = this.form.value;
-    console.log(this.medico.id);
 
     if (this.medico.id) {
       this.api.update(this.medico).subscribe(
@@ -84,7 +77,7 @@ export class MedicoFormComponent implements OnInit {
           this.dialog.closeAll();
         },
         (erro) => {
-          this.snackBar.open(JSON.parse(erro._body).message, "FECHAR", {
+          this.snackBar.open(erro.error.message, "FECHAR", {
             duration: 100000,
           });
         }
@@ -99,7 +92,7 @@ export class MedicoFormComponent implements OnInit {
           this.dialog.closeAll();
         },
         (erro) => {
-          this.snackBar.open(JSON.parse(erro._body).message, "FECHAR", {
+          this.snackBar.open(erro.error.message, "FECHAR", {
             duration: 100000,
           });
         }

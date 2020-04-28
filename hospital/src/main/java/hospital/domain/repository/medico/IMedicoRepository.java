@@ -24,4 +24,10 @@ public interface IMedicoRepository extends JpaRepository<Medico, Long> {
     @Query("FROM Medico medico WHERE medico.crm = :crm")
     Optional<Medico> findByCrm(@Param("crm") String crm);
 
+    /**
+     *
+     */
+    @Query("FROM Medico medico WHERE medico.crm = :crm and medico.id = :id")
+    Optional<Medico> findByCrmAndId(@Param("crm") String crm, @Param("id") Long id);
+
 }

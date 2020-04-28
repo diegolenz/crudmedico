@@ -17,10 +17,10 @@ spring:
 
 #JPA
   jpa:
+    #hibernate.ddl-auto: create
     hibernate.ddl-auto: validate
     show-sql: true
     open-in-view: true
-    properties:
-      hibernate.dialect: hospital.infrastructure.hibernate.PostgreSQLDialect
-      hibernate.default_schema: public
+
+
 

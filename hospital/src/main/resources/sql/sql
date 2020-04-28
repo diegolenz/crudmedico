@@ -1,0 +1,6 @@
+drop table if exists endereco cascade;
+drop table if exists medico cascade;
+create table endereco (id  bigserial not null, bairro varchar(144) not null, cep varchar(10), cidade varchar(144), estado varchar(144) not null, logradouro varchar(144), numero varchar(20), pais varchar(144), primary key (id));
+create table medico (id  bigserial not null, crm varchar(255) not null, nome varchar(255) not null, endereco_id int8, primary key (id));
+alter table medico add constraint UK_gchpdsdnxfv1vuayn3tkspvpj unique (crm);
+alter table medico add constraint FKdou0400stdgqmwjnsbwd09oy7 foreign key (endereco_id) references endereco;

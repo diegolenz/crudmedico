@@ -24,8 +24,11 @@ public class MedicoResource {
     @Autowired
     private MedicoService medicoService;
 
+    /*-------------------------------------------------------------------
+     * 		 					CONSTRUCTOR
+     *-------------------------------------------------------------------*/
+
     public MedicoResource() {
-        //medicoService = new MedicoService();
     }
 
     /*-------------------------------------------------------------------
@@ -41,7 +44,7 @@ public class MedicoResource {
             return medicoService.save(medico);
         } catch (Exception exc) {
             throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+                    HttpStatus.INTERNAL_SERVER_ERROR, exc.getMessage(), exc);
         }
     }
 

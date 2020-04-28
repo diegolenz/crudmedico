@@ -25,6 +25,7 @@ export class MedicoListComponent implements OnInit {
 
   private findMedicos() {
     this.api.getAll().subscribe((res) => {
+      console.log(res);
       this.medicos = res;
     });
   }
@@ -38,7 +39,9 @@ export class MedicoListComponent implements OnInit {
 
   public edit(medico: Medico) {
     const dialogRef = this.dialog.open(MedicoFormComponent, { data: medico });
-    dialogRef.afterClosed().subscribe((result) => {});
+    dialogRef.afterClosed().subscribe((result) => {
+      this.findMedicos();
+    });
   }
 
   public delete(medico: Medico) {
@@ -49,7 +52,9 @@ export class MedicoListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.api.delete(medico.id).subscribe();
+        this.api.delete(medico.id).subscribe((res) => {
+          this.findMedicos();
+        });
       }
     });
   }

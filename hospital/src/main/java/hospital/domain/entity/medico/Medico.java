@@ -43,9 +43,7 @@ public class Medico {
      */
     public void validateMedico()
     {
-        Assert.hasText(this.crm, "O campo 'CPF' deve ser preenchido");
-        Assert.hasText(this.nome, "O campo 'Nome' deve ser preenchido");
-        Assert.notNull(this.endereco, "O endereço não pode ser nulo");
+
     }
 
 
