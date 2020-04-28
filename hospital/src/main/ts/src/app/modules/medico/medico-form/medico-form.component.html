@@ -1,0 +1,160 @@
+<form [formGroup]="form">
+  <mat-card fxLayout="column">
+    <mat-card-header>
+      <mat-card-title>
+        Cadastro de pessoa
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="column" fxFlex>
+      <div fxLayout="row" fxFlexAlign="space-between start">
+        <mat-form-field fxFlex>
+          <input
+            formControlName="nome"
+            matInput
+            name="nome"
+            id="input-desc"
+            pattern=".+@.+\..+"
+            placeholder="nome"
+            autofocus
+            required
+          />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxFlexAlign="space-between start">
+        <mat-form-field fxFlex>
+          <input
+            formControlName="crm"
+            matInput
+            name="crm"
+            id="input-desc"
+            pattern=".+@.+\..+"
+            placeholder="Crm"
+            autofocus
+            required
+          />
+        </mat-form-field>
+      </div>
+
+      <div
+        class="mt-8"
+        fxLayout="column"
+        formGroupName="endereco"
+        fxFlexAlign="space-between start"
+      >
+        <mat-card-subtitle style="margin-right: 32px;">
+          Endereço
+        </mat-card-subtitle>
+        <div fxLayout="row" fxFlexAlign="space-between start">
+          <mat-form-field style="margin-right: 32px;" fxFlex>
+            <input
+              formControlName="pais"
+              matInput
+              name="pais"
+              pattern=".+@.+\..+"
+              placeholder="Pais"
+              autofocus
+            />
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input
+              formControlName="estado"
+              matInput
+              name="estado"
+              pattern=".+@.+\..+"
+              placeholder="Estado"
+              autofocus
+            />
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxFlexAlign="space-between start">
+          <mat-form-field style="margin-right: 32px;" fxFlex>
+            <input
+              formControlName="cidade"
+              matInput
+              name="cidade"
+              pattern=".+@.+\..+"
+              placeholder="Cidade"
+              autofocus
+            />
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input
+              formControlName="bairro"
+              matInput
+              name="bairro"
+              pattern=".+@.+\..+"
+              placeholder="Bairro"
+              autofocus
+            />
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxFlexAlign="space-between start">
+          <mat-form-field fxFlex>
+            <input
+              formControlName="logradouro"
+              matInput
+              name="logradouro"
+              pattern=".+@.+\..+"
+              placeholder="logradouro"
+              autofocus
+            />
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxFlexAlign="space-between start">
+          <mat-form-field style="margin-right: 32px;" fxFlex>
+            <input
+              formControlName="cep"
+              matInput
+              name="cep"
+              pattern=".+@.+\..+"
+              placeholder="Cep"
+              autofocus
+            />
+          </mat-form-field>
+
+          <mat-form-field fxFlex>
+            <input
+              formControlName="numero"
+              matInput
+              name="numero"
+              pattern=".+@.+\..+"
+              placeholder="Numero"
+              autofocus
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-card-content fxLayout="row" fxLayoutAlign="end center">
+        <button
+          style="
+            margin-right: 20px;
+            background-color: #48c774;
+            color: blanchedalmond;
+          "
+          mat-button
+          type="button"
+          (click)="save()"
+        >
+          Salvar
+        </button>
+        <button
+          style="
+            margin-right: 10px;
+            background-color: #ff3e64;
+            color: blanchedalmond;
+          "
+          mat-button
+          type="button"
+          status="success"
+          (click)="close()"
+        >
+          Fechar
+        </button>
+      </mat-card-content>
+    </mat-card-footer>
+  </mat-card>
+</form>

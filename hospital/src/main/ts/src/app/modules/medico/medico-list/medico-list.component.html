@@ -1,0 +1,85 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Médicos
+    </mat-card-title>
+
+    <button
+      nbButton
+      mat-button
+      status="success"
+      (click)="add()"
+      matTooltip="Novo médico"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-table [dataSource]="medicos" matSort>
+    <!-- Nome Column -->
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Nome
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="progress">
+        {{ row.nome }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Crm Column -->
+    <ng-container matColumnDef="crm">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Crm
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="progress">
+        {{ row.crm }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="acoes">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Ações
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="progress">
+        <span>
+          <button
+            matTooltip="Editar"
+            class="boatoAlt botaoAuxAlt"
+            (click)="edit(row)"
+            mat-icon-button
+          >
+            <mat-icon>create</mat-icon>
+          </button>
+          <button
+            matTooltip="desativar"
+            class="botaoWarn botaoAuxWarn"
+            (click)="delete(row)"
+            mat-icon-button
+          >
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions">
+      <mat-header-cell fxFlex="10" *matHeaderCellDef>
+        <span class="font-16 tc-paragraph-light"></span>
+      </mat-header-cell>
+      <mat-cell fxFlex="10" *matCellDef="let item">
+        <div fxLayout="row" fxLayoutAlign="center center" class="p-8">
+          <button mat-icon-button matTooltip="Editar" (click)="edit(item.id)">
+            <mat-icon class="tc-primary">edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            matTooltip="Remover"
+            (click)="delete(item.id)"
+          >
+            <mat-icon class="tc-error">delete</mat-icon>
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+  </mat-table>
+</mat-card>

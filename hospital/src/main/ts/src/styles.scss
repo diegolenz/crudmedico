@@ -1,0 +1,65 @@
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@for $i from 1 through 64 {
+  $size: $i * 4;
+
+  .p-#{$size} {
+    padding: #{$size}px !important;
+  }
+
+  .pt-#{$size} {
+    padding-top: #{$size}px !important;
+  }
+
+  .pb-#{$size} {
+    padding-bottom: #{$size}px !important;
+  }
+
+  .pl-#{$size} {
+    padding-left: #{$size}px !important;
+  }
+
+  .pr-#{$size} {
+    padding-right: #{$size}px !important;
+  }
+
+  .m-#{$size} {
+    margin: #{$size}px !important;
+  }
+
+  .mt-#{$size} {
+    margin-top: #{$size}px !important;
+  }
+
+  .mb-#{$size} {
+    margin-bottom: #{$size}px !important;
+  }
+
+  .ml-#{$size} {
+    margin-left: #{$size}px !important;
+  }
+
+  .mr-#{$size} {
+    margin-right: #{$size}px !important;
+  }
+
+  .pull-#{$size} {
+    margin: -#{$size}px !important;
+  }
+
+  .pull-t-#{$size} {
+    margin-top: -#{$size}px !important;
+  }
+
+  .pull-b-#{$size} {
+    margin-bottom: -#{$size}px !important;
+  }
+
+  .pull-l-#{$size} {
+    margin-left: -#{$size}px !important;
+  }
+
+  .pull-r-#{$size} {
+    margin-right: -#{$size}px !important;
+  }
+}

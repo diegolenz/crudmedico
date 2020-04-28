@@ -1,0 +1,79 @@
+<mat-sidenav-container class="header-container" autosize>
+  <mat-sidenav #sidenav style="width: 250px;">
+    <h3 fxLayoutAlign="start center" style="color: black;"></h3>
+
+    <p *ngFor="let menu of menus; last as last">
+      <button
+        (click)="sidenav.toggle()"
+        routerLink="{{ menu.router }}"
+        fxLayoutAlign="start center"
+        style="width: 100%; margin-bottom: 10px;"
+        mat-button
+      >
+        <div class="row">
+          <mat-icon style="bottom: 5px; font-size: 20px !important;">{{
+            menu.icon
+          }}</mat-icon>
+          <label class="push-left-md" style="font-size: 20px !important;">{{
+            menu.title
+          }}</label>
+        </div>
+      </button>
+
+      <mat-divider *ngIf="!last"></mat-divider>
+    </p>
+  </mat-sidenav>
+  <mat-toolbar style="background-color: #00bfff;">
+    <mat-toolbar-row>
+      <button mat-icon-button td-menu-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Medicos</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
+
+<!--<td-layout-nav
+    toolbarTitle="title"
+    logo="logo"
+    icon="icon"
+    color="green"
+    fxLayout="row"
+  >
+    <button mat-icon-button td-menu-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div fx td-toolbar-content fxLayoutAlign="end center">
+      <span>a</span>
+    </div>
+
+    <td-layout-footer color="primary">
+      <button>
+        <button class="pad-left-lg" mat-menu-item>
+          <span>Sair</span>
+        </button>
+      </button>
+    </td-layout-footer>
+
+    <router-outlet></router-outlet>
+  </td-layout-nav>
+</mat-sidenav-container>-->
+
+<!-- <td-layout-nav>
+  <div td-toolbar-content >
+    <div fxLayoutAlign="space-around center">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div fxLayoutAlign="end center">
+      <button class="pad-left-lg" mat-menu-item>
+        <span>Sair</span>
+      </button>
+    </div>
+    <breadcrumb [allowBootstrap]="true"></breadcrumb>
+  </div>
+
+  <router-outlet></router-outlet>
+</td-layout-nav> -->
